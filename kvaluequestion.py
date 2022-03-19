@@ -55,7 +55,7 @@ fish_target = np.array(target)
 error_rate = []
 # dataset = [[h,w] for h,w in zip(weight, height)]
 train_input, test_input, train_target, test_target = train_test_split(fish_data, fish_target, train_size = 0.7, random_state= 11)
-
+breakpoint()
 ## Kvalue의 변화에 따른 오차 확인
 for i in range(1,110):
 
@@ -88,6 +88,6 @@ test_target = test_target.reshape(-1,1)
 # cmap =plt.cm.Reds, normalize = True)
 # print(plot)
 
-## 오차가 너무 높게 나와서 줄일 수 있는 방안에 대해 같이 고민!
+## 오차가 너무 높게 나와서 줄일 수 있는 방안에 대해 고민!
 mat = confusion_matrix(test_target, predict_i, labels = [0,1,2,3,4,5,6])
 print(mat)
