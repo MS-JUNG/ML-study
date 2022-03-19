@@ -55,7 +55,7 @@ fish_target = np.array(target)
 error_rate = []
 # dataset = [[h,w] for h,w in zip(weight, height)]
 train_input, test_input, train_target, test_target = train_test_split(fish_data, fish_target, train_size = 0.7, random_state= 11)
-breakpoint()
+
 ## Kvalue의 변화에 따른 오차 확인
 for i in range(1,110):
 
