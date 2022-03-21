@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import confusion_matrix, plot_confusion_matrix
+from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix, plot_confusion_matrix
 
 # X_train = [[l,w] for l,w in zip(length,weight)]
 ## K value에 따른 오차 확인 및 개선 방안 및 분류 오차 줄이는 방안에 대해서 고민
@@ -65,7 +65,7 @@ for i in range(1,110):
     error_rate.append(np.mean(predict_i != test_target))
 
 
-plt.figure(figsize=(50,12))
+plt.figure(figsize=(30,8))
 plt.plot(range(109),error_rate,marker="o",markerfacecolor="green",
          linestyle="dashed",color="red",markersize=15)
 plt.title("Error rate vs k value",fontsize=20)
@@ -84,10 +84,9 @@ test_target = test_target.reshape(-1,1)
 # test_target = test_target.tolist()
 # predict_i = predict_i.tolist()
 # breakpoint()
-# plot = plot_confusion_matrix(kn, test_target, predict_i, display_labels = [0,1,2,3,4,5,6],
-# cmap =plt.cm.Reds, normalize = True)
+cm = confusion_matrix(test_target, predict_i, labels = [0,1,2,3,4,5,6])
+disp  = ConfusionMatrixDisplay(confusion_matrix= cm , display_labels =  [0,1,2,3,4,5,6])
 # print(plot)
-
+disp.plot()
+plt.show()
 ## 오차가 너무 높게 나와서 줄일 수 있는 방안에 대해 고민!
-mat = confusion_matrix(test_target, predict_i, labels = [0,1,2,3,4,5,6])
-print(mat)
