@@ -57,7 +57,7 @@ error_rate = []
 train_input, test_input, train_target, test_target = train_test_split(fish_data, fish_target, train_size = 0.7, random_state= 11)
 
 ## Kvalue의 변화에 따른 오차 확인
-for i in range(1,110):
+for i in range(1,51):
 
     kn = KNeighborsClassifier(n_neighbors=i) 
     kn.fit(train_input, train_target)
@@ -66,12 +66,12 @@ for i in range(1,110):
 
 
 plt.figure(figsize=(30,8))
-plt.plot(range(109),error_rate,marker="o",markerfacecolor="green",
+plt.plot(range(50),error_rate,marker="o",markerfacecolor="green",
          linestyle="dashed",color="red",markersize=15)
 plt.title("Error rate vs k value",fontsize=20)
 plt.xlabel("k- values",fontsize=40)
 plt.ylabel("error rate",fontsize=40)
-plt.xticks(range(1,110))
+plt.xticks(range(1,50))
 plt.show()
 
 kn = KNeighborsClassifier(n_neighbors=12) 
@@ -86,7 +86,7 @@ test_target = test_target.reshape(-1,1)
 # breakpoint()
 cm = confusion_matrix(test_target, predict_i, labels = [0,1,2,3,4,5,6])
 disp  = ConfusionMatrixDisplay(confusion_matrix= cm , display_labels =  [0,1,2,3,4,5,6])
-# print(plot)
+
 disp.plot()
 plt.show()
 ## 오차가 너무 높게 나와서 줄일 수 있는 방안에 대해 고민!
