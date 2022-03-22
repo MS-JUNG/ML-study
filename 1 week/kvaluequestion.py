@@ -10,7 +10,7 @@ from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix, plot_confu
 ## K value에 따른 오차 확인 및 개선 방안 및 분류 오차 줄이는 방안에 대해서 고민
 data = pd.read_csv('Fish.csv')
 df = pd.DataFrame(data)
-
+breakpoint()
 
 ## 6가지 물고기 종류별 weight, height 추출
 Bream_weight = list(data[df.Species == 'Bream']['Weight'])
