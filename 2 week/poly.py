@@ -16,7 +16,7 @@ perch_full = da.to_numpy()
 perch_length = np.array(list(data[df.Species == 'Perch']['Length2']))
 perch_weight = np.array(list(data[df.Species == 'Perch']['Weight']))
 
-perch_length = perch_length.reshape(perch_length.shape[0],1)
+perch_length = perch_length.reshape(-1,1)
 perchh_weight = perch_weight.reshape(-1,1)
 
 train_input, test_input, train_target, test_target = train_test_split(perch_full,perch_weight, random_state= 11)
@@ -25,12 +25,13 @@ train_input, test_input, train_target, test_target = train_test_split(perch_full
 # perch_length = perch_length.reshape(perch_length.shape[0],1)
 # perch_weight = perch_weight.reshape(-1,1)
 
-poly = PolynomialFeatures(degree = 5,include_bias = False)
+poly = PolynomialFeatures(degree = 2,include_bias = False)
 poly.fit(train_input)
-
+breakpoint()
 train_poly = poly.transform(train_input)
 
 test_poly = poly.transform(test_input)
+breakpoint()
 print(train_poly.shape)
 print(test_poly.shape)
 

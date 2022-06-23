@@ -44,7 +44,7 @@ classes = np.unique(train_target)
 for _ in range(0,1500):
     SG.partial_fit(train_scaled, train_target, classes = classes)
     train_score.append(SG.score(train_scaled, train_target))
-    
+    breakpoint()    
     test_score.append(SG.score(test_scaled, test_target))
 
 

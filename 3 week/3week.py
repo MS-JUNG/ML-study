@@ -21,9 +21,20 @@ print(kn.classes_)
 
 print(kn.predict_proba(test_scaled))
 print(test_target[1])
-# l = np.array([-0.96697 , -1.331267, -1.318376, -0.538183, -1.35469 ])
-# l = l.reshape(1,-1)
-distances, indexes = kn.kneighbors(test_scaled[35:36])
+l = np.array([-1.062186, -1.368436, -1.430107, -1.491334, -1.516303])
+m = np.array([-0.96697 , -1.331267, -1.318376, -0.538183, -1.35469 ])
+l = l.reshape(1,-1)
+m = m.reshape(1,-1)
+distances, indexes = kn.kneighbors(test_scaled[0:40])
 # print(kn.predict(l))
 print(distances)
+print(kn.predict(l))
+print(kn.predict(m))
+print(train_target[indexes])
+l = 0
+for i in range(40):
+    print(kn.predict(test_scaled[i].reshape(1,-1)))
+    l += 1 
+
+print(l)
 breakpoint()

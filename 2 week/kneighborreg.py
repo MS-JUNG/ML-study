@@ -13,8 +13,8 @@ perch_length = np.array(list(data[df.Species == 'Perch']['Length2']))
 perch_weight = np.array(list(data[df.Species == 'Perch']['Weight']))
 
 
-perch_length = perch_length.reshape(perch_length.shape[0],1)
-perch_weight = perch_weight.reshape(-1,1)
+perch_length = perch_length.reshape(perch_length.shape[0],2)
+perch_weight = perch_weight.reshape(-1,2)
 
 
 
